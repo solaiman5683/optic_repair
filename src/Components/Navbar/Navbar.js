@@ -6,14 +6,14 @@ import {
 	NavbarBrand,
 	Nav,
 	NavItem,
-	NavLink,
 	UncontrolledDropdown,
 	DropdownToggle,
 	DropdownMenu,
 	DropdownItem,
 } from 'reactstrap';
-import { BiLogIn } from 'react-icons/bi';
+import { BiLogIn, BiUserCircle } from 'react-icons/bi';
 import { RiUserSharedLine } from 'react-icons/ri';
+import { NavLink } from 'react-router-dom';
 
 const Navigation = ({ logo }) => {
 	const [isOpen, setIsOpen] = useState(false);
@@ -25,21 +25,32 @@ const Navigation = ({ logo }) => {
 			<Navbar color='light' light expand='md'>
 				<div className='container'>
 					<NavbarBrand>
-						<img src={logo} alt='Optic Repair' width='75px' />
+						<NavLink to='/'>
+							<img src={logo} alt='Optic Repair' width='75px' />
+						</NavLink>
 					</NavbarBrand>
 					<NavbarToggler onClick={toggle} />
 					<Collapse isOpen={isOpen} navbar>
 						<Nav className='ms-auto' navbar>
 							<NavItem>
-								<NavLink href='/components/'>Components</NavLink>
+								<NavLink className='nav-link' to='/home'>
+									Home
+								</NavLink>
 							</NavItem>
-							<NavItem>
-								<NavLink href='https://github.com/reactstrap/reactstrap'>
-									GitHub
+							<NavItem title='Login'>
+								<NavLink className='nav-link' to='login'>
+									<BiLogIn />
+								</NavLink>
+							</NavItem>
+							<NavItem title='Signup'>
+								<NavLink className='nav-link' to='signup'>
+									<RiUserSharedLine />
 								</NavLink>
 							</NavItem>
 							<UncontrolledDropdown nav inNavbar>
-								<DropdownToggle nav>Options</DropdownToggle>
+								<DropdownToggle nav>
+									<BiUserCircle />
+								</DropdownToggle>
 								<DropdownMenu right>
 									<DropdownItem>Option 1</DropdownItem>
 									<DropdownItem>Option 2</DropdownItem>
@@ -47,16 +58,6 @@ const Navigation = ({ logo }) => {
 									<DropdownItem>Reset</DropdownItem>
 								</DropdownMenu>
 							</UncontrolledDropdown>
-							<NavItem title='Login'>
-								<NavLink href='https://github.com/reactstrap/reactstrap'>
-									<BiLogIn />
-								</NavLink>
-							</NavItem>
-							<NavItem title='Signup'>
-								<NavLink href='https://github.com/reactstrap/reactstrap'>
-									<RiUserSharedLine />
-								</NavLink>
-							</NavItem>
 						</Nav>
 					</Collapse>
 				</div>

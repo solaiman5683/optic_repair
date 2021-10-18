@@ -4,7 +4,7 @@ import './footer.css';
 
 const Footer = ({ logo }) => {
 	return (
-		<div className='footer-container bg-dark text-light fixed-bottom pt-5'>
+		<div className='footer-container bg-dark text-light pt-5'>
 			<Container>
 				<Row xs='4' className='align-items-center'>
 					<Col className='text-center'>
@@ -40,7 +40,7 @@ const Footer = ({ logo }) => {
 					</Col>
 				</Row>
 				<hr />
-				<p className='text-center copyright'>
+				<p className='text-center copyright m-0 pb-4'>
 					Copyright &copy;2021 OpticRepair developed by{' '}
 					<a href='https://www.facebook.com/solaiman.sh6/'>Sulaiman Hosain</a>
 				</p>
