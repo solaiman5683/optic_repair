@@ -1,0 +1,31 @@
+.footer-container {
+	background-image: url(https://monnampo.sirv.com/Images/partner-area-bg.png);
+	background-position: top center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.footer-links * {
+	color: rgb(255, 255, 255);
+}
+
+.footer-links *:hover {
+	color: #02c18d;
+	cursor: pointer;
+}
+
+.copyright {
+	color: rgb(224, 224, 224);
+}
+.copyright a {
+	color: #02c18ec7;
+	text-decoration: none;
+}
+
+.copyright a:hover {
+	color: #02c18d;
+}
+
+.footer-container p {
+	color: #f3f3f3;
+}
