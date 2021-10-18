@@ -5,6 +5,7 @@ import Navigation from './Components/Navbar/Navbar';
 import Footer from './Components/Footer/Footer';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './Components/Pages/Home/Home';
+import ServiceDetails from './Components/ServiceDetails/details';
 
 function App() {
 	return (
@@ -17,6 +18,9 @@ function App() {
 					</Route>
 					<Route path='/home'>
 						<Home />
+					</Route>
+					<Route path='/:id'>
+						<ServiceDetails />
 					</Route>
 					<Route path='/login'>
 						<h1 className='text-center'>Hello From Login</h1>
