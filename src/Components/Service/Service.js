@@ -14,7 +14,9 @@ const Service = ({ service }) => {
 	return (
 		<div>
 			<Card className='border-0 shadow-sm'>
-				<CardImg top width='100%' src={service?.image} alt='Card image cap' />
+				<Link to={`service/${service._id}`}>
+					<CardImg top width='100%' src={service?.image} alt='Card image cap' />
+				</Link>
 				<CardBody>
 					<CardTitle tag='h5'>{service?.treatment}</CardTitle>
 					<CardSubtitle tag='h6' className='mb-2 text-muted'>

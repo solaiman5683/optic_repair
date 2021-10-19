@@ -12,11 +12,11 @@ const NewsLatter = () => {
 			<div className='container py-3 fs-3'>
 				<Row xs={1} md={2}>
 					<Col>
-						<div className='text-center my-3' style={{ color: '#02C18D' }}>
-							<BsGoogle className='mx-2' />
-							<BsFacebook className='mx-2' />
-							<BsInstagram className='mx-2' />
-							<BsTwitter className='mx-2' />
+						<div className='my-3' style={{ color: '#02C18D' }}>
+							<BsGoogle className='mx-2' style={{ cursor: 'pointer' }} />
+							<BsFacebook className='mx-2' style={{ cursor: 'pointer' }} />
+							<BsInstagram className='mx-2' style={{ cursor: 'pointer' }} />
+							<BsTwitter className='mx-2' style={{ cursor: 'pointer' }} />
 						</div>
 					</Col>
 					<Col>

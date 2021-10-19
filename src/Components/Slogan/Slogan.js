@@ -1,6 +1,5 @@
 import React from 'react';
 import { MdDoubleArrow } from 'react-icons/md';
-import { Col, Row } from 'reactstrap';
 
 const Slogan = () => {
 	return (
@@ -12,17 +11,17 @@ const Slogan = () => {
 			}}>
 			<div
 				style={{
-					backgroundColor: 'rgba(3, 193, 143, 0.9)',
+					backgroundColor: 'rgba(3, 193, 143, 0.92)',
 					padding: '50px 0',
 				}}>
 				<div className='container p-5'>
-					<Row xs={1} md={2} className='align-items-center'>
-						<Col>
+					<div className='row align-items-center'>
+						<div className='col-md-8'>
 							<h1 className='text-light fw-bold w-75'>
 								Are you looking for a eye care consultation?
 							</h1>
-						</Col>
-						<Col className='text-center'>
+						</div>
+						<div className='col-md-4 text-center'>
 							<span
 								className='ms-auto rounded-pill ps-3 border-0'
 								style={{
@@ -42,8 +41,8 @@ const Slogan = () => {
 									}}
 								/>
 							</span>
-						</Col>
-					</Row>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
