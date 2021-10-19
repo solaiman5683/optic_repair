@@ -98,7 +98,9 @@ const Contact = () => {
 						url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
 					/>
 					<Marker position={[23.7028596, 90.4587598]}>
-						<Popup>Your location</Popup>
+						<Popup>
+							Our location <br /> To Contact us Visit Here
+						</Popup>
 					</Marker>
 				</MapContainer>
 			</div>
