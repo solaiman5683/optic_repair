@@ -1,19 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { FiPhoneCall } from 'react-icons/fi';
 import { MdOutlineAlternateEmail } from 'react-icons/md';
 import { ImLocation2 } from 'react-icons/im';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 
 const Contact = () => {
-	const [location, setLocation] = useState();
-	useEffect(() => {
-		navigator.geolocation.getCurrentPosition(
-			p => setLocation(p),
-			e => console.log(e)
-		);
-	}, []);
-	console.log(location?.coords?.latitude, location?.coords?.longitude);
-
 	return (
 		<div>
 			<div className='container p-5' style={{ color: '#353742' }}>
@@ -99,23 +90,14 @@ const Contact = () => {
 			</div>
 			<div style={{ width: '100%', height: '300px' }}>
 				<MapContainer
-					center={[
-						location?.coords?.latitude ? location.coords.latitude : 23.7028596,
-						location?.coords?.longitude
-							? location.coords.longitude
-							: 90.4587598,
-					]}
+					center={[23.7028596, 90.4587598]}
 					zoom={13}
 					scrollWheelZoom={false}>
 					<TileLayer
 						attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 						url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
 					/>
-					<Marker
-						position={[
-							location?.coords?.latitude ? location.coords.latitude : 51.505,
-							location?.coords?.longitude ? location.coords.longitude : -0.09,
-						]}>
+					<Marker position={[23.7028596, 90.4587598]}>
 						<Popup>Your location</Popup>
 					</Marker>
 				</MapContainer>
