@@ -20,11 +20,11 @@ const Blog = () => {
 					style={{ margin: '50px auto' }}
 					className='d-flex align-items-center justify-content-center'>
 					<div className='shadow rounded overflow-hidden'>
-						<Row xs={2}>
+						<Row xs={1} lg={2}>
 							<Col>
 								<img src={item?.image} alt='' width='100%' height='100%' />
 							</Col>
-							<Col className='p-4'>
+							<Col className='p-5'>
 								<h3>{item?.title}</h3>
 								<hr />
 								<h5>{item?.h1}</h5>

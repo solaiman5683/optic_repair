@@ -41,6 +41,11 @@ const Navigation = ({ logo }) => {
 									Blogs
 								</NavLink>
 							</NavItem>
+							<NavItem>
+								<NavLink className='nav-link' to='/contact'>
+									Contact us
+								</NavLink>
+							</NavItem>
 							{!(user.displayName || user.email) && (
 								<>
 									<NavItem title='Login'>
@@ -57,26 +62,23 @@ const Navigation = ({ logo }) => {
 							)}
 							{(user?.displayName || user?.email) && (
 								<UncontrolledDropdown nav inNavbar>
-									<DropdownToggle
-										nav
-										className='ms-auto d-flex align-items-center'>
+									<DropdownToggle nav className='d-flex align-items-center'>
 										{user?.displayName && (
 											<>
-												{!user?.photoURL && user?.displayName}
-												<img
-													src={user?.photoURL}
-													alt={user?.displayName.slice(
-														0,
-														user?.displayName.indexOf(' ')
-													)}
-													width='50px'
-													className='ps-2 rounded-circle'
-												/>
+												{!user?.photoURL && (
+													<span className='px-2'>{user?.displayName}</span>
+												)}
+												{user?.photoURL && (
+													<img
+														src={user?.photoURL}
+														alt={''}
+														width='50px'
+														className='ps-2 rounded-circle'
+													/>
+												)}
 											</>
 										)}
-										{!(user?.displayName || user?.photoURL) && (
-											<FaRegUserCircle />
-										)}
+										{!user?.photoURL && <FaRegUserCircle />}
 									</DropdownToggle>
 									<DropdownMenu className='border-0 rounded shadow' right>
 										<div className='text-center'>

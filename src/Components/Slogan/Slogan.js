@@ -8,10 +8,12 @@ const Slogan = () => {
 			style={{
 				backgroundImage:
 					'url("https://monnampo.sirv.com/Images/slogan-area-bg.jpg")',
+				backgroundAttachment: 'fixed',
 			}}>
 			<div
 				style={{
 					backgroundColor: 'rgba(3, 193, 143, 0.9)',
+					padding: '50px 0',
 				}}>
 				<div className='container p-5'>
 					<Row xs={1} md={2} className='align-items-center'>

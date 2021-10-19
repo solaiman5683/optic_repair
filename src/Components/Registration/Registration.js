@@ -22,27 +22,25 @@ const Registration = () => {
 	const location = useLocation();
 	const history = useHistory();
 	const redirectURI = location.state?.from || '/home';
-	setError('');
 	const handleSubmit = e => {
 		e.preventDefault();
 		handleRegister(email, password)
 			.then(res => {
 				setUser(res.user);
 				updateUser(name);
-				setError('');
 				setLoading(false);
-				history.push(redirectURI);
+				history.push('/login');
 			})
 			.catch(err => {
 				setError(err.message);
 			});
 	};
+	console.log(error);
 
 	const loginGoogle = () => {
 		handleGoogleLogin()
 			.then(res => {
 				setUser(res.user);
-				setError('');
 				setLoading(false);
 				history.push(redirectURI);
 			})
@@ -54,6 +52,7 @@ const Registration = () => {
 	if (user.displayName || user.email) {
 		history.push(redirectURI);
 	}
+
 	return (
 		<div
 			className='container'
@@ -74,7 +73,7 @@ const Registration = () => {
 							onBlur={e => setName(e.target.value)}
 						/>
 						<input
-							type='email'
+							type='text'
 							className='form-control p-3 mb-2'
 							placeholder='Enter Your Email*'
 							onBlur={e => setEmail(e.target.value)}

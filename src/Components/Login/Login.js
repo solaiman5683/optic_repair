@@ -33,10 +33,14 @@ const Login = () => {
 			});
 	};
 	const handleGoogle = () => {
-		handleGoogleLogin().then(res => {
-			setUser(res.user);
-			setLoading(false);
-		});
+		handleGoogleLogin()
+			.then(res => {
+				setUser(res.user);
+				setLoading(false);
+			})
+			.catch(err => {
+				setError(err.message);
+			});
 	};
 	if (user.displayName || user.email) {
 		history.push(redirectURI);

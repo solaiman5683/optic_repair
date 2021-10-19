@@ -15,9 +15,9 @@ const ServiceDetails = () => {
 				style={{ margin: '50px auto' }}
 				className='d-flex align-items-center justify-content-center'>
 				<div className='shadow rounded overflow-hidden'>
-					<Row xs={2}>
+					<Row xs={1} lg={2}>
 						<Col>
-							<img src={item?.image} alt='' width='100%' />
+							<img src={item?.image} alt='' width='100%' height='100%' />
 						</Col>
 						<Col className='p-4'>
 							<h3 className='pt-5'>{item?.treatment}</h3>

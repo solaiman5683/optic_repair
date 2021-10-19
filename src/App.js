@@ -13,6 +13,7 @@ import AuthProvider from './Context/AuthContext';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 import Blogs from './Components/Pages/Blogs/Blogs';
 import Blog from './Components/Blog/Blog';
+import Contact from './Components/Contact-us/Contact';
 
 function App() {
 	return (
@@ -27,7 +28,9 @@ function App() {
 						<Route path='/home'>
 							<Home />
 						</Route>
-
+						<Route path='/contact'>
+							<Contact />
+						</Route>
 						<Route path='/login'>
 							<Login />
 						</Route>
