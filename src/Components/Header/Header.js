@@ -11,7 +11,7 @@ const Header = () => {
 	return (
 		<div style={style}>
 			<Container className='h-100'>
-				<Row xs={2} className='h-100 align-items-center'>
+				<Row xs={1} md={2} className='h-100 align-items-center'>
 					<Col>
 						<h1 className='display-3'>Caring For Your Vision</h1>
 						<p className='text-muted w-75 ps-2'>

@@ -22,7 +22,7 @@ const Registration = () => {
 	const location = useLocation();
 	const history = useHistory();
 	const redirectURI = location.state?.from || '/home';
-
+	setError('');
 	const handleSubmit = e => {
 		e.preventDefault();
 		handleRegister(email, password)
@@ -63,10 +63,10 @@ const Registration = () => {
 				alignItems: 'center',
 				padding: '100px 0',
 			}}>
-			<Row xs='2' className='p-5 shadow rounded align-items-center'>
+			<Row xs={1} md={2} className='p-5 shadow rounded align-items-center'>
 				<Col className='py-5'>
 					<h2 style={{ color: '#5A5A5A' }}>Resister Your Account Now!</h2>
-					<Form onSubmit={handleSubmit} className='py-3 pe-5 me-5'>
+					<Form onSubmit={handleSubmit} className='py-3'>
 						<input
 							type='text'
 							className='form-control p-3 mb-2'

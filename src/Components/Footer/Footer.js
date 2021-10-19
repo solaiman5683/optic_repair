@@ -4,9 +4,9 @@ import './footer.css';
 
 const Footer = ({ logo }) => {
 	return (
-		<div className='footer-container bg-dark text-light pt-5'>
+		<div className='footer-container bg-dark text-light pt-5 '>
 			<Container>
-				<Row xs='4' className='align-items-center'>
+				<Row xs='1' md={4} className='align-items-center'>
 					<Col className='text-center'>
 						<img src={logo} alt='Footer Logo' width='150px' />
 					</Col>
