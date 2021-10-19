@@ -14,9 +14,10 @@ const Header = () => {
 				<Row xs={2} className='h-100 align-items-center'>
 					<Col>
 						<h1 className='display-3'>Caring For Your Vision</h1>
-						<p className='fs-5 w-75 ps-2'>
-							We are committed to your pet's health and well being by providing
-							them compassionate and excellent care.
+						<p className='text-muted w-75 ps-2'>
+							Eye Care Specialist Services That You Can Trust. We are committed
+							you to provide best Care for your Eyes and your vision. Eyes are
+							the most important thing of your life.
 						</p>
 					</Col>
 					<Col></Col>

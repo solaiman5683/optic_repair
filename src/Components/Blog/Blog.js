@@ -9,7 +9,6 @@ const Blog = () => {
 	const blogs = useBlogs();
 	const { id } = useParams();
 	const item = blogs.find(blog => blog._id === id);
-	// const { title, image, h1, h2, h3, p1, p2, p3 } = item;
 	return (
 		<div>
 			<Container>
