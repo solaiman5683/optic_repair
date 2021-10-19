@@ -4,17 +4,10 @@ import Service from '../Service/Service';
 
 const Services = () => {
 	const service = useData();
-	console.log(service);
 	return (
 		<div className='container mb-5'>
-			<h1 className='text-center py-5'>Treatments We Offer</h1>
-			<hr />
-			<div
-				style={{
-					display: 'grid',
-					gridTemplateColumns: 'repeat(3,1fr)',
-					gridGap: '20px',
-				}}>
+			<h1 className='text-center py-5 treatment'>Treatments We Offer</h1>
+			<div className='row row-cols-1 row-cols-md-3 g-4'>
 				{service.map(svc => (
 					<Service service={svc} key={svc._id} />
 				))}
