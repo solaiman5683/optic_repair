@@ -7,6 +7,7 @@ import {
 	createUserWithEmailAndPassword,
 	onAuthStateChanged,
 	signOut,
+	updateProfile,
 } from 'firebase/auth';
 import FirebaseConfig from '../firebase.config';
 
@@ -14,6 +15,7 @@ FirebaseConfig();
 const useFirebase = () => {
 	const [user, setUser] = useState([]);
 	const [loading, setLoading] = useState(true);
+	const [error, setError] = useState('');
 
 	const googleProvider = new GoogleAuthProvider();
 	const auth = getAuth();
@@ -24,13 +26,21 @@ const useFirebase = () => {
 
 	const handleRegister = (email, password) =>
 		createUserWithEmailAndPassword(auth, email, password);
+	const updateUser = name => {
+		updateProfile(auth.currentUser, {
+			displayName: name,
+			photoURL: '',
+		});
+	};
 
 	useEffect(() => {
 		onAuthStateChanged(auth, user => {
 			if (user) {
 				setUser(user);
 				setLoading(false);
+				setError('');
 			} else {
+				setLoading(false);
 				setUser('');
 			}
 		});
@@ -47,6 +57,9 @@ const useFirebase = () => {
 		handleLogin,
 		handleRegister,
 		logout,
+		error,
+		setError,
+		updateUser,
 	};
 };
 

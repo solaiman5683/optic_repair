@@ -42,7 +42,12 @@ const Footer = ({ logo }) => {
 				<hr />
 				<p className='text-center copyright m-0 pb-4'>
 					Copyright &copy;2021 OpticRepair developed by{' '}
-					<a href='https://www.facebook.com/solaiman.sh6/'>Sulaiman Hosain</a>
+					<a
+						href='https://www.facebook.com/solaiman.sh6/'
+						rel='noreferrer'
+						target='_blank'>
+						Sulaiman Hosain
+					</a>
 				</p>
 			</Container>
 		</div>

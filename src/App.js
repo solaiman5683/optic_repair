@@ -10,6 +10,9 @@ import Login from './Components/Login/Login';
 import Registration from './Components/Registration/Registration';
 import NotFound from './Components/NotFound/NotFound';
 import AuthProvider from './Context/AuthContext';
+import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
+import Blogs from './Components/Pages/Blogs/Blogs';
+import Blog from './Components/Blog/Blog';
 
 function App() {
 	return (
@@ -24,20 +27,26 @@ function App() {
 						<Route path='/home'>
 							<Home />
 						</Route>
-						<Route path='/service/:id'>
-							<ServiceDetails />
-						</Route>
+
 						<Route path='/login'>
 							<Login />
 						</Route>
 						<Route path='/registration'>
 							<Registration />
 						</Route>
+						<PrivateRoute path='/blogs'>
+							<Blogs />
+						</PrivateRoute>
+						<PrivateRoute path='/service/:id'>
+							<ServiceDetails />
+						</PrivateRoute>
+						<PrivateRoute path='/blog/:id'>
+							<Blog />
+						</PrivateRoute>
 						<Route>
 							<NotFound />
 						</Route>
 					</Switch>
-
 					<Footer logo={logo2} />
 				</Router>
 			</AuthProvider>

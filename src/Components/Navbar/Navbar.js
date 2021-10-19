@@ -12,13 +12,13 @@ import {
 } from 'reactstrap';
 import { BiLogIn, BiLogOutCircle } from 'react-icons/bi';
 import { RiUserSharedLine } from 'react-icons/ri';
+import { FaRegUserCircle } from 'react-icons/fa';
 import { NavLink } from 'react-router-dom';
 import { useAuth } from '../../Context/AuthContext';
 
 const Navigation = ({ logo }) => {
 	const { user, logout } = useAuth();
 	const [isOpen, setIsOpen] = useState(false);
-
 	const toggle = () => setIsOpen(!isOpen);
 
 	return (
@@ -36,6 +36,11 @@ const Navigation = ({ logo }) => {
 									Home
 								</NavLink>
 							</NavItem>
+							<NavItem>
+								<NavLink className='nav-link' to='/blogs'>
+									Blogs
+								</NavLink>
+							</NavItem>
 							{!(user.displayName || user.email) && (
 								<>
 									<NavItem title='Login'>
@@ -50,7 +55,7 @@ const Navigation = ({ logo }) => {
 									</NavItem>
 								</>
 							)}
-							{user.displayName && (
+							{(user?.displayName || user?.email) && (
 								<UncontrolledDropdown nav inNavbar>
 									<DropdownToggle
 										nav
@@ -60,20 +65,34 @@ const Navigation = ({ logo }) => {
 												{!user?.photoURL && user?.displayName}
 												<img
 													src={user?.photoURL}
-													alt={user?.displayName}
+													alt={user?.displayName.slice(
+														0,
+														user?.displayName.indexOf(' ')
+													)}
 													width='50px'
 													className='ps-2 rounded-circle'
 												/>
 											</>
 										)}
+										{!(user?.displayName || user?.photoURL) && (
+											<FaRegUserCircle />
+										)}
 									</DropdownToggle>
-									<DropdownMenu right>
+									<DropdownMenu className='border-0 rounded shadow' right>
 										<div className='text-center'>
-											<img src={user?.photoURL} alt={user?.displayName} />
+											<img
+												className='rounded-circle'
+												src={user?.photoURL}
+												alt=''
+											/>
 										</div>
 										<DropdownItem divider />
-										<DropdownItem>{user?.displayName}</DropdownItem>
-										<DropdownItem onClick={() => logout()}>
+										<DropdownItem className='text-center'>
+											{user?.displayName ? user.displayName : 'Anonymous User'}
+										</DropdownItem>
+										<DropdownItem
+											className='text-center text-danger'
+											onClick={() => logout()}>
 											<BiLogOutCircle /> Logout
 										</DropdownItem>
 									</DropdownMenu>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import { Form } from 'reactstrap';
 import { useAuth } from '../../Context/AuthContext';
 
@@ -15,14 +15,16 @@ const Login = () => {
 		handleLogin,
 		setError,
 	} = useAuth();
+	const location = useLocation();
 	const history = useHistory();
+	const redirectURI = location.state?.from || '/home';
 	const handleSubmit = e => {
 		e.preventDefault();
 		handleLogin(email, password)
 			.then(res => {
 				setUser(res.user);
 				setLoading(false);
-				history.push('/home');
+				history.push(redirectURI);
 			})
 			.catch(err => {
 				setError(err.message);
@@ -35,7 +37,7 @@ const Login = () => {
 		});
 	};
 	if (user.displayName || user.email) {
-		history.push('/home');
+		history.push(redirectURI);
 	}
 	return (
 		<div

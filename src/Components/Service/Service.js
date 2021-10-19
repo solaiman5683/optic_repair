@@ -18,7 +18,7 @@ const Service = ({ service }) => {
 				<CardBody>
 					<CardTitle tag='h5'>{service?.treatment}</CardTitle>
 					<CardSubtitle tag='h6' className='mb-2 text-muted'>
-						{service?.treatment}
+						{service?.description.slice(0, 100)} ...
 					</CardSubtitle>
 				</CardBody>
 				<CardFooter className='d-flex align-items-center border-0'>

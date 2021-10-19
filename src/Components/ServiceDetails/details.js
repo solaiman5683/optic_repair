@@ -9,11 +9,10 @@ const ServiceDetails = () => {
 	const service = useData();
 	const { id } = useParams();
 	const item = service.find(s => s._id === id);
-	console.log(item);
 	return (
 		<Container>
 			<div
-				style={{ minHeight: '80vh' }}
+				style={{ margin: '50px auto' }}
 				className='d-flex align-items-center justify-content-center'>
 				<div className='shadow rounded overflow-hidden'>
 					<Row xs={2}>
@@ -22,7 +21,7 @@ const ServiceDetails = () => {
 						</Col>
 						<Col className='p-4'>
 							<h3 className='pt-5'>{item?.treatment}</h3>
-							<p className='text-muted w-75'>{item?.description}</p>
+							<p className='text-muted w-75 py-3'>{item?.description}</p>
 							<h4>Charge : ${item?.fee}</h4>
 							<Link to='/' className='nav-link text-dark'>
 								<FcHome className='pe-1 fs-1' />
