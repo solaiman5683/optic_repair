@@ -92,7 +92,7 @@ const Contact = () => {
 				<MapContainer
 					center={[23.7028596, 90.4587598]}
 					zoom={13}
-					scrollWheelZoom={false}>
+					scrollWheelZoom={true}>
 					<TileLayer
 						attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 						url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'

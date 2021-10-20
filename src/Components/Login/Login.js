@@ -7,18 +7,14 @@ import { useAuth } from '../../Context/AuthContext';
 const Login = () => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
-	const {
-		user,
-		handleGoogleLogin,
-		setUser,
-		setLoading,
-		handleLogin,
-		error,
-		setError,
-	} = useAuth();
+	const [error, setError] = useState('');
+
+	const { user, handleGoogleLogin, setUser, setLoading, handleLogin } =
+		useAuth();
+
 	const location = useLocation();
 	const history = useHistory();
-	setError('');
+
 	const redirectURI = location.state?.from || '/home';
 	const handleSubmit = e => {
 		e.preventDefault();
@@ -26,6 +22,7 @@ const Login = () => {
 			.then(res => {
 				setUser(res.user);
 				setLoading(false);
+				setError('');
 				history.push(redirectURI);
 			})
 			.catch(err => {
@@ -36,6 +33,7 @@ const Login = () => {
 		handleGoogleLogin()
 			.then(res => {
 				setUser(res.user);
+				setError('');
 				setLoading(false);
 			})
 			.catch(err => {
@@ -55,12 +53,7 @@ const Login = () => {
 			<div className='row'>
 				<div className='col-md-2 col-lg-3 col-xxl-4'></div>
 				<div className='col-md-8 col-lg-6 col-xxl-4'>
-					<div
-						style={{
-							margin: '50px',
-							justifyContent: 'space-between',
-						}}
-						className='shadow rounded overflow-hidden'>
+					<div className='shadow rounded overflow-hidden my-5'>
 						<div style={{ backgroundColor: '#D7E1E6' }}>
 							<img
 								src='https://monnampo.sirv.com/Images/b13.jpg'
@@ -80,20 +73,27 @@ const Login = () => {
 									placeholder='Enter your Password*'
 									onBlur={e => setPassword(e.target.value)}
 								/>
+								{error && (
+									<p className='text-danger text-center'>
+										{error === 'Firebase: Error (auth/user-not-found).'
+											? 'User Not Found, Please try again!'
+											: error === 'Firebase: Error (auth/internal-error).'
+											? 'Internal error, please try again'
+											: error === 'Firebase: Error (auth/wrong-password).'
+											? 'Wrong Password, Please try again'
+											: 'Something went wrong. Please try again'}
+									</p>
+								)}
 								<input
 									type='submit'
 									className='btn btn-primary w-25'
 									value='Login'
 								/>
-								{error && (
-									<span className='text-danger px-3 m-0 fs-5'>
-										{error === 'Firebase: Error (auth/user-not-found).' &&
-											'User Not Found, Please try again!'}
-									</span>
-								)}
+
 								<Link to='/registration' className='px-3 btn'>
 									Don't Registered yet ?
 								</Link>
+
 								<div className='py-4'>
 									<span
 										className='btn px-4 py-3 rounded-pill shadow'

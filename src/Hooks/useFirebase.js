@@ -15,7 +15,6 @@ FirebaseConfig();
 const useFirebase = () => {
 	const [user, setUser] = useState([]);
 	const [loading, setLoading] = useState(true);
-	const [error, setError] = useState('');
 
 	const googleProvider = new GoogleAuthProvider();
 	const auth = getAuth();
@@ -38,7 +37,6 @@ const useFirebase = () => {
 			if (user) {
 				setUser(user);
 				setLoading(false);
-				setError('');
 			} else {
 				setLoading(false);
 				setUser('');
@@ -46,7 +44,7 @@ const useFirebase = () => {
 		});
 	}, [auth]);
 
-	const logout = () => signOut(auth).then(() => setUser([]));
+	const logout = () => signOut(auth).then(() => setUser(''));
 
 	return {
 		user,
@@ -57,8 +55,6 @@ const useFirebase = () => {
 		handleLogin,
 		handleRegister,
 		logout,
-		error,
-		setError,
 		updateUser,
 	};
 };

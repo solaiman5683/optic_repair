@@ -8,6 +8,7 @@ const Registration = () => {
 	const [name, setName] = useState('');
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
+	const [error, setError] = useState('');
 
 	const {
 		user,
@@ -15,8 +16,6 @@ const Registration = () => {
 		setLoading,
 		handleGoogleLogin,
 		handleRegister,
-		error,
-		setError,
 		updateUser,
 	} = useAuth();
 	const location = useLocation();
@@ -35,7 +34,6 @@ const Registration = () => {
 				setError(err.message);
 			});
 	};
-	console.log(error);
 
 	const loginGoogle = () => {
 		handleGoogleLogin()
@@ -89,7 +87,20 @@ const Registration = () => {
 							className='form-control bg-primary text-light fs-5 p-3 mb-2'
 							value='Register'
 						/>
-						{error && <span className='text-danger'>{error}</span>}
+						{error && (
+							<p className='text-danger text-center'>
+								{error === 'Firebase: Error (auth/invalid-email).'
+									? 'Invalid Email Address, Please try again!'
+									: error ===
+									  'Firebase: Password should be at least 6 characters (auth/weak-password).'
+									? 'Password should be at least 6 characters'
+									: error === 'Firebase: Error (auth/email-already-in-use).'
+									? 'Email Already Exist, Try Another Email.'
+									: error === 'Firebase: Error (auth/popup-closed-by-user).'
+									? 'You closed the popup. Please wait for it to appear.'
+									: 'Something went wrong, Please try again!'}
+							</p>
+						)}
 						<div className='d-flex'>
 							<Link to='/login' className='px-3 mt-2 py-3 btn'>
 								Already Registered ?
