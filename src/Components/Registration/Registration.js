@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import { Col, Form, Row } from 'reactstrap';
@@ -9,7 +9,10 @@ const Registration = () => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [error, setError] = useState('');
-
+	useEffect(() => {
+		document.title =
+			'Registration | Optic Repair - The Specialized Eye Care Hospital';
+	}, []);
 	const {
 		user,
 		setUser,

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useParams } from 'react-router';
 import useBlogs from '../../Hooks/useBlogs';
 import { Col, Container, Row } from 'reactstrap';
@@ -9,6 +9,9 @@ const Blog = () => {
 	const blogs = useBlogs();
 	const { id } = useParams();
 	const item = blogs.find(blog => blog._id === id);
+	useEffect(() => {
+		document.title = item?.title;
+	}, [item?.title]);
 	return (
 		<div>
 			<Container>

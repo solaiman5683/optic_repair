@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import { Col, Container, Row } from 'reactstrap';
@@ -9,6 +9,9 @@ const ServiceDetails = () => {
 	const service = useData();
 	const { id } = useParams();
 	const item = service.find(s => s._id === id);
+	useEffect(() => {
+		document.title = item?.treatment;
+	}, [item?.treatment]);
 	return (
 		<Container>
 			<div

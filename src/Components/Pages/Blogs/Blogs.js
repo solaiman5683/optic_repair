@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import useBlogs from '../../../Hooks/useBlogs';
 
 const Blogs = () => {
+	useEffect(() => {
+		document.title = 'Blogs | Optic Repair - The Specialized Eye Care Hospital';
+	}, []);
 	const blogs = useBlogs();
 	return (
 		<div className='container my-5'>

@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FiPhoneCall } from 'react-icons/fi';
 import { MdOutlineAlternateEmail } from 'react-icons/md';
 import { ImLocation2 } from 'react-icons/im';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 
 const Contact = () => {
+	useEffect(() => {
+		document.title =
+			'Contact us | Optic Repair - The Specialized Eye Care Hospital';
+	}, []);
 	return (
 		<div>
 			<div className='container p-5' style={{ color: '#353742' }}>

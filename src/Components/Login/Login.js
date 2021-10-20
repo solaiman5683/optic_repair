@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import { Form } from 'reactstrap';
@@ -8,7 +8,9 @@ const Login = () => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [error, setError] = useState('');
-
+	useEffect(() => {
+		document.title = 'Login | Optic Repair - The Specialized Eye Care Hospital';
+	}, []);
 	const { user, handleGoogleLogin, setUser, setLoading, handleLogin } =
 		useAuth();
 
